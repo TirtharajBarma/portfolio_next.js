@@ -12,7 +12,6 @@ import git from './git.png';
 import mongodb from './mongodb.png';
 import right_arrow_white from './right-arrow-white.png';
 import logo from './logo.png';
-import logo_dark from './logo_dark.png';
 import mail_icon from './mail_icon.png';
 import mail_icon_dark from './mail_icon_dark.png';
 import profile_img from './profile-img.png';
@@ -39,9 +38,19 @@ import tirtha from './tirtha_profile.png';
 import programming from './programming.png'
 import docker from './docker.png'
 import aws from './aws.png'
+import linkedin from './linkedin.png'
+import github from './github.png'
+import logo_white from './logo_white.png'
+import logo_dark from './logo_dark.png'
+import linkdin_dark from './linkdin_dark.png'
 
 export const assets = {
     user_image,
+    linkedin,
+    github,
+    linkdin_dark,
+    logo_dark,
+    logo_white,
     docker,
     aws,
     code_icon,
@@ -58,7 +67,6 @@ export const assets = {
     mongodb,
     right_arrow_white,
     logo,
-    logo_dark,
     mail_icon,
     mail_icon_dark,
     profile_img,
@@ -86,32 +94,29 @@ export const assets = {
 
 export const workData = [
     {
-        title: 'Frontend project',
-        description: 'Web Design',
+        title: 'Crypto-Tracking',
+        description: 'React, API',
         bgImage: '/work-1.png',
+        url: 'https://github.com/TirtharajBarma/Book-Store-WebApp'
     },
     {
-        title: 'Geo based app',
-        description: 'Mobile App',
+        title: 'Book Store WebApp',
+        description: 'MERN',
         bgImage: '/work-2.png',
+        url: 'https://github.com/TirtharajBarma/Crypto-app'
     },
     {
-        title: 'Photography site',
-        description: 'Web Design',
+        title: 'Mail Sending',
+        description: 'Node.js, Nodemailler',
         bgImage: '/work-3.png',
+        url: 'https://github.com/TirtharajBarma/Node.js-Email-Sender-'
     },
     {
-        title: 'UI/UX designing',
-        description: 'UI/UX Design',
-        bgImage: '/work-4.png',
+        title: 'Travel-Tour',
+        description: 'HTML, CSS, JS',
+        bgImage: '/travel_tour.png',
+        url: 'https://github.com/TirtharajBarma/Travel-Tour-Website'
     },
-]
-
-export const serviceData = [
-    { icon: assets.web_icon, title: 'Web design', description: 'Web development is the process of building, programming...', link: '' },
-    { icon: assets.mobile_icon, title: 'Mobile app', description: 'Mobile app development involves creating software for mobile devices...', link: '' },
-    { icon: assets.ui_icon, title: 'UI/UX design', description: 'UI/UX design focuses on creating a seamless user experience...', link: '' },
-    { icon: assets.graphics_icon, title: 'Graphics design', description: 'Creative design solutions to enhance visual communication...', link: '' },
 ]
 
 export const infoList = [

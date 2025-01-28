@@ -1,13 +1,38 @@
 'use client'
-import {Navbar, Header, About, Project} from './pages/index'
+import { useEffect, useState } from 'react';
+import {Navbar, Header, About, Project, Contact, Footer} from './pages/index'
 
 export default function Home() {
+
+  const [isDarkMode, setISDarkMode] = useState(false);
+
+  useEffect(() => {
+    if( localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)){
+        setISDarkMode(true);
+    }else{
+      setISDarkMode(false);
+    }
+  }, [])
+
+  useEffect(() => {
+      if(isDarkMode){
+          document.documentElement.classList.add('dark');
+          localStorage.theme = 'dark';
+      }
+      else {
+          document.documentElement.classList.remove('dark');
+          localStorage.theme = '';
+      }
+  }, [isDarkMode])
+
   return (
     <>
-      <Navbar />
-      <Header />
-      <About />
-      <Project />
+      <Navbar isDarkMode={isDarkMode} setISDarkMode={setISDarkMode} />
+      <Header isDarkMode={isDarkMode}  />
+      <About isDarkMode={isDarkMode} />
+      <Project isDarkMode={isDarkMode} />
+      <Contact isDarkMode={isDarkMode} />
+      <Footer isDarkMode={isDarkMode} />
     </>
   );
 }
