@@ -17,7 +17,7 @@ const Header = ({isDarkMode}) => {
         <a href="#contact" className='px-10 py-3 border border-white rounded-full bg-black text-white flex items-center gap-2 dark:bg-transparent'>contact me <Image src={assets.right_arrow_white} alt='' className='w-4' /></a>
         <a href="/Tirtharaj_resume.pdf" download className='px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black'>my resume <Image src={assets.download_icon} alt='' className='w-4' /></a>
       </div>
-      <div className='flex flex-col sm:flex-row items-center mt-1'>
+      <div className='flex sm:flex-row items-center mt-1'>
         <a href="https://www.linkedin.com/in/tirtharaj-barma-327940236" className='px-10 py-3 flex items-center gap-2'> <Image src={assets.linkedin} alt='' className='w-10' /></a>
         <a href="https://github.com/TirtharajBarma" download className='px-10 py-3 rounded-full flex items-center gap-2'> <Image src={assets.github} alt='' className='w-10 dark:invert' /></a>
       </div>
