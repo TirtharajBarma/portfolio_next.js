@@ -43,11 +43,13 @@ import github from './github.png'
 import logo_white from './logo_white.png'
 import logo_dark from './logo_dark.png'
 import linkdin_dark from './linkdin_dark.png'
+import postman from './postman-icon.png'
 
 export const assets = {
     user_image,
     linkedin,
     github,
+    postman,
     linkdin_dark,
     logo_dark,
     logo_white,
@@ -97,13 +99,13 @@ export const workData = [
         title: 'Crypto-Tracking',
         description: 'React, API',
         bgImage: '/work-1.png',
-        url: 'https://github.com/TirtharajBarma/Book-Store-WebApp'
+        url: 'https://github.com/TirtharajBarma/Crypto-app'
     },
     {
-        title: 'Book Store WebApp',
+        title: 'Book Store',
         description: 'MERN',
         bgImage: '/work-2.png',
-        url: 'https://github.com/TirtharajBarma/Crypto-app'
+        url: 'https://github.com/TirtharajBarma/Book-Store-WebApp'
     },
     {
         title: 'Mail Sending',
@@ -126,5 +128,5 @@ export const infoList = [
 ];
 
 export const toolsData = [
-    assets.vscode, assets.firebase, assets.mongodb, assets.git, assets.aws, assets.docker
+    assets.vscode, assets.firebase, assets.mongodb, assets.git, assets.aws, assets.docker, assets.postman
 ];
