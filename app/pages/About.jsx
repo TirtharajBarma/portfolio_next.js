@@ -40,7 +40,7 @@ const About = ({isDarkMode}) => {
           initial={{opacity: 0}}
           whileInView={{opacity: 1}}
           transition={{duration: 0.6, delay: 0.8}}
-        className='flex-1'>
+        className='flex-1 w-full min-w-0'>
             <p className='mb-5 max-w-2xl font-Ovo'>I'm a web developer who loves building websites and working with cloud technology. I create reliable websites that can grow with your needs. I work on all parts of website development and have strong experience using Amazon Web Services (AWS). I enjoy using the latest technology to build websites that are fast, secure, and easy to use. I'm always learning new skills and staying up-to-date with technology to deliver the best results in every project.</p>
             
             <motion.ul 
