@@ -44,6 +44,7 @@ import logo_white from './logo_white.png'
 import logo_dark from './logo_dark.png'
 import linkdin_dark from './linkdin_dark.png'
 import postman from './postman-icon.png'
+import jenkins from './Jenkins.png'
 
 export const assets = {
     user_image,
@@ -91,7 +92,8 @@ export const assets = {
     right_arrow,
     send_icon,
     right_arrow_bold,
-    right_arrow_bold_dark
+    right_arrow_bold_dark,
+    jenkins
 };
 
 export const workData = [
@@ -128,5 +130,5 @@ export const infoList = [
 ];
 
 export const toolsData = [
-    assets.vscode, assets.firebase, assets.mongodb, assets.git, assets.aws, assets.docker, assets.postman
+    assets.vscode, assets.firebase, assets.mongodb, assets.git, assets.aws, assets.docker, assets.postman, assets.jenkins
 ];

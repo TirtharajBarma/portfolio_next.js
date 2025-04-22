@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import {Navbar, Header, About, Project, Contact, Footer} from './pages/index'
+import Education from './pages/Education';
 
 export default function Home() {
 
@@ -31,6 +32,7 @@ export default function Home() {
       <Header isDarkMode={isDarkMode}  />
       <About isDarkMode={isDarkMode} />
       <Project isDarkMode={isDarkMode} />
+      <Education />
       <Contact isDarkMode={isDarkMode} />
       <Footer isDarkMode={isDarkMode} />
     </>
