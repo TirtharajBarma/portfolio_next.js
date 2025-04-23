@@ -1,4 +1,5 @@
 // components/Education.jsx
+'use client';
 import { CalendarDays, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import React from 'react';
@@ -190,7 +191,7 @@ const Education = ({isDarkMode}) => {
             key={idx}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.5 }}
-            className="border border-gray-300 dark:border-white/30 p-6 rounded-lg shadow-sm bg-white hover:bg-lightHover dark:bg-darkHover/30 hover:-translate-y-1 duration-500 hover:shadow-black dark:hover:shadow-white"
+            className="border border-gray-300 dark:border-white/30 p-6 rounded-lg shadow-sm bg-white hover:bg-lightHover hover:shadow-black dark:hover:shadow-white dark:hover:bg-darkHover/50 dark:bg-darkHover/30"
           >
             <div>
               <h3 className="text-lg font-bold text-gray-800 dark:text-white">{cert.title}</h3>
