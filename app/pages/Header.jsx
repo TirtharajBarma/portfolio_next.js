@@ -36,7 +36,7 @@ const Header = ({isDarkMode}) => {
           initial={{y: 30, opacity: 0}}
           whileInView={{y: 0, opacity: 1}}
           transition={{duration: 0.6, delay: 1.2}}
-        href="/Tirtharaj_resume.pdf" download className='px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black'>my resume <Image src={assets.download_icon} alt='' className='w-4' /></motion.a>
+        href="/TirtharajBarma_resume.pdf" download className='px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black'>my resume <Image src={assets.download_icon} alt='' className='w-4' /></motion.a>
       </div>
       <div className='flex sm:flex-row items-center mt-1'>
         <a href="https://www.linkedin.com/in/tirtharaj-barma-327940236" className='px-10 py-3 flex items-center gap-2'> <Image src={assets.linkedin} alt='' className='w-10' /></a>

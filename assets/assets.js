@@ -45,12 +45,28 @@ import logo_dark from './logo_dark.png'
 import linkdin_dark from './linkdin_dark.png'
 import postman from './postman-icon.png'
 import jenkins from './Jenkins.png'
+import lpu from './lpu.png'
+import dps from './dps.jpeg'
+import hcs from './hcs.jpeg'
+import leetcode from './leetcode.png'
+import townclub from './townclub.jpeg'
+import udemy from './udemy.png'
+import s3 from './s3.png'
+import nptel from './nptel.png'
 
 export const assets = {
     user_image,
+    lpu,
+    udemy,
+    s3,
+    nptel,
     linkedin,
     github,
+    townclub,
     postman,
+    dps,
+    hcs,
+    leetcode,
     linkdin_dark,
     logo_dark,
     logo_white,
@@ -100,25 +116,25 @@ export const workData = [
     {
         title: 'Crypto-Tracking',
         description: 'React, API',
-        bgImage: '/work-1.png',
+        bgImage: '/cryptoapp.png',
         url: 'https://github.com/TirtharajBarma/Crypto-app'
     },
     {
         title: 'Book Store',
         description: 'MERN',
-        bgImage: '/work-2.png',
+        bgImage: '/bookapp.png',
         url: 'https://github.com/TirtharajBarma/Book-Store-WebApp'
     },
     {
         title: 'Mail Sending',
         description: 'Node.js, Nodemailler',
-        bgImage: '/work-3.png',
+        bgImage: '/mailapp.png',
         url: 'https://github.com/TirtharajBarma/Node.js-Email-Sender-'
     },
     {
         title: 'Travel-Tour',
         description: 'HTML, CSS, JS',
-        bgImage: '/travel_tour.png',
+        bgImage: '/travelapp.png',
         url: 'https://github.com/TirtharajBarma/Travel-Tour-Website'
     },
 ]

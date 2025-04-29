@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import {Navbar, Header, About, Project, Contact, Footer} from './pages/index'
 import Education from './pages/Education';
+import Skills from './pages/Skill';
 
 export default function Home() {
 
@@ -31,8 +32,9 @@ export default function Home() {
       <Navbar isDarkMode={isDarkMode} setISDarkMode={setISDarkMode} />
       <Header isDarkMode={isDarkMode}  />
       <About isDarkMode={isDarkMode} />
+      <Skills isDarkMode={isDarkMode} />
       <Project isDarkMode={isDarkMode} />
-      <Education />
+      <Education isDarkMode={isDarkMode} />
       <Contact isDarkMode={isDarkMode} />
       <Footer isDarkMode={isDarkMode} />
     </>
