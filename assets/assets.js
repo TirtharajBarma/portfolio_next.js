@@ -53,12 +53,14 @@ import townclub from './townclub.jpeg'
 import udemy from './udemy.png'
 import s3 from './s3.png'
 import nptel from './nptel.png'
+import profile from './profile.png'
 
 export const assets = {
     user_image,
     lpu,
     udemy,
     s3,
+    profile,
     nptel,
     linkedin,
     github,
