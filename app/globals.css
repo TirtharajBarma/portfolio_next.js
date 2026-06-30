@@ -4,4 +4,41 @@
 
 *{
   font-family: Outfit;
+  box-sizing: border-box;
+}
+
+html {
+  background: #fbfaf7;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.10), transparent 30rem),
+    linear-gradient(180deg, #fffdf8 0%, #fbfaf7 45%, #ffffff 100%);
+  color: #151922;
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.14), transparent 28rem),
+    linear-gradient(180deg, #0d1117 0%, #111827 52%, #0d1117 100%);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.section-shell {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.text-balance {
+  text-wrap: balance;
 }

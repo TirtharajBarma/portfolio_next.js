@@ -1,87 +1,110 @@
-import { assets, infoList, toolsData } from '@/assets/assets'
-import Image from 'next/image'
-import React from 'react'
-import { motion } from "motion/react"
+import { toolsData } from '@/assets/assets';
+import Image from 'next/image';
+import React from 'react';
+import { motion } from 'motion/react';
+import { Braces, Cloud, GraduationCap, Layers3, Rocket, ShieldCheck } from 'lucide-react';
 
-const About = ({isDarkMode}) => {
+const focusAreas = [
+  { icon: Layers3, title: 'Frontend systems', text: 'Responsive React and Next.js interfaces with reusable UI patterns.' },
+  { icon: Braces, title: 'API integration', text: 'Clean data flows, REST integrations, and practical full-stack thinking.' },
+  { icon: Cloud, title: 'Cloud mindset', text: 'AWS-aware development choices for deployable, reliable products.' },
+];
+
+const quickFacts = [
+  { label: 'Degree', value: 'B.Tech Computer Science', icon: GraduationCap },
+  { label: 'Build style', value: 'Fast, clean, scalable UI', icon: Rocket },
+  { label: 'Strength', value: 'Product detail and reliability', icon: ShieldCheck },
+];
+
+const About = () => {
   return (
-    <motion.div id='about' className='w-full px-[12%] py-10 scroll-mt-20'
-      initial={{opacity: 0}}
-      whileInView={{opacity: 1}}
-      transition={{duration: 1}}
+    <motion.section
+      id="about"
+      className="section-shell scroll-mt-24 py-14 sm:py-20"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
     >
-      <motion.h4 
-        initial={{opacity: 0, y: -20}}
-        whileInView={{opacity: 1, y: 0}}
-        transition={{duration: 0.5, delay: 0.3}}
-      className='text-center mb-2 text-lg font-Ovo'>Introduction</motion.h4>
-      
-      <motion.h2 
-        initial={{opacity: 0, y: -20}}
-        whileInView={{opacity: 1, y: 0}}
-        transition={{duration: 0.5, delay: 0.5}}
-      className='text-center text-5xl font-Ovo'>About me</motion.h2>
-      
-      <motion.div 
-        initial={{opacity: 0}}
-        whileInView={{opacity: 1}}
-        transition={{duration: 0.8}}
-      className='flex w-full flex-col lg:flex-row items-center gap-20 my-10'>
-        
-        <motion.div 
-          initial={{opacity: 0, scale: 0.9}}
-          whileInView={{opacity: 1, scale: 1}}
-          transition={{duration: 0.6}}
-          className='w-64 sm:w-80 rounded-3xl max-w-none'>
-            <Image src={assets.tirtha} alt='user' className='w-full rounded-3xl' />
+      <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          className="lg:sticky lg:top-28"
+        >
+          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-white/45">
+            About
+          </span>
+          <h2 className="mt-3 text-4xl font-bold leading-tight text-gray-950 sm:text-5xl dark:text-white">
+            I build web experiences that feel sharp, usable, and ready to ship.
+          </h2>
+          <p className="mt-5 max-w-xl text-base leading-7 text-gray-600 dark:text-white/64">
+            I am Tirtharaj Barma, a web developer focused on modern frontend development, API-connected products, and cloud-friendly architecture. I care about clean implementation, responsive behavior, and small details that make software feel trustworthy.
+          </p>
         </motion.div>
-        
-        <motion.div 
-          initial={{opacity: 0}}
-          whileInView={{opacity: 1}}
-          transition={{duration: 0.6, delay: 0.8}}
-        className='flex-1 w-full min-w-0'>
-            <p className='mb-5 max-w-2xl font-Ovo'>I'm a web developer who loves building websites and working with cloud technology. I create reliable websites that can grow with your needs. I work on all parts of website development and have strong experience using Amazon Web Services (AWS). I enjoy using the latest technology to build websites that are fast, secure, and easy to use. I'm always learning new skills and staying up-to-date with technology to deliver the best results in every project.</p>
-            
-            <motion.ul 
-              initial={{opacity: 0}}
-              whileInView={{opacity: 1}}
-              transition={{duration: 0.8, delay: 1}}
-            className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl'>
-                {infoList.map(({icon, iconDark, title, description}, index) => (
-                    <motion.li
-                      whileHover={{scale: 1.05}}
-                    className='border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50' key={index}>
-                        <Image src={isDarkMode ? iconDark : icon} alt={title} className='w-7 mt-3' />
-                        <h3 className='my-4 font-semibold text-gray-700 dark:text-white'>{title}</h3>
-                        <p className='text-gray-600 text-sm dark:text-white/80'>{description}</p>
-                    </motion.li>
-                ))}
-            </motion.ul>
-            
-            <motion.h4
-              initial={{opacity: 0, y: 20}}
-              whileInView={{opacity: 1, y: 0}}
-              transition={{duration: 0.5, delay: 1.3}}
-            className='my-6 text-gray-700 font-Ovo dark:text-white/80'>Tools I use</motion.h4>
-            
-            <motion.ul 
-              initial={{opacity: 0}}
-              whileInView={{opacity: 1}}
-              transition={{duration: 0.6, delay: 1.5}}
-            className='flex items-center gap-3 sm:gap-5'>
-                {toolsData.map((tool, index) => (
-                    <motion.li
-                      whileHover={{scale: 1.1}}
-                    className='flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500' key={index}>
-                        <Image src={tool} alt='tool' className='w-5 sm:w-7' />
-                    </motion.li>
-                ))}
-            </motion.ul>
-        </motion.div>
-      </motion.div>
-    </motion.div>
-  )
-}
 
-export default About
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.12 }}
+          className="space-y-4"
+        >
+          <div className="rounded-lg border border-black/10 bg-white/80 p-4 shadow-sm backdrop-blur sm:p-5 dark:border-white/10 dark:bg-white/[0.05]">
+            <div className="grid gap-3 md:grid-cols-3">
+              {focusAreas.map(({ icon: Icon, title, text }) => (
+                <article key={title} className="rounded-md bg-slate-50 p-4 dark:bg-white/[0.06]">
+                  <Icon size={21} className="text-slate-800 dark:text-white" />
+                  <h3 className="mt-4 text-base font-bold text-gray-950 dark:text-white">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-white/62">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-[1fr_0.92fr]">
+            <div className="rounded-lg border border-black/10 bg-white/80 p-4 shadow-sm backdrop-blur sm:p-5 dark:border-white/10 dark:bg-white/[0.05]">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-white/45">
+                Snapshot
+              </p>
+              <div className="mt-4 space-y-3">
+                {quickFacts.map(({ label, value, icon: Icon }) => (
+                  <div key={label} className="flex items-center gap-3 rounded-md border border-black/5 bg-white p-3 dark:border-white/10 dark:bg-[#111827]/70">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-slate-900 text-white dark:bg-white dark:text-gray-950">
+                      <Icon size={17} />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gray-400">{label}</p>
+                      <p className="mt-0.5 text-sm font-semibold leading-5 text-gray-900 dark:text-white">{value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-lg border border-black/10 bg-white/80 p-4 shadow-sm backdrop-blur sm:p-5 dark:border-white/10 dark:bg-white/[0.05]">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-white/45">
+                Daily tools
+              </p>
+              <div className="mt-4 grid grid-cols-4 gap-2.5">
+                {toolsData.map((tool, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ y: -3 }}
+                    className="grid aspect-square place-items-center rounded-md border border-black/10 bg-slate-50 transition dark:border-white/10 dark:bg-white"
+                  >
+                    <Image src={tool} alt="Development tool" className="w-5 sm:w-6" />
+                  </motion.div>
+                ))}
+              </div>
+              <p className="mt-4 text-sm leading-6 text-gray-600 dark:text-white/62">
+                Comfortable moving from interface polish to databases, cloud basics, containers, and delivery workflows.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </motion.section>
+  );
+};
+
+export default About;

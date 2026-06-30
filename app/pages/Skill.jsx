@@ -1,133 +1,286 @@
-import React, { useState } from 'react';
+'use client';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Server, Cloud, Code, Box, Database, GitBranch, Globe, X } from 'lucide-react';
+import {
+  Atom,
+  BookOpen,
+  Box,
+  BriefcaseBusiness,
+  Cable,
+  Calendar,
+  Cloud,
+  Code2,
+  Database,
+  FileJson,
+  FileText,
+  GitBranch,
+  Globe,
+  Hash,
+  Lock,
+  MapPin,
+  MessageCircle,
+  Network,
+  Send,
+  Server,
+  Sparkles,
+  Terminal,
+  Wrench,
+  Zap,
+} from 'lucide-react';
 
-const skillsData = [
+const experience = [
   {
-    icon: <Server size={32} />,
-    color: '#00C853', // Green for Node.js
-    title: 'Node.js Development',
-    description: 'Expert in building scalable backend services and APIs using Node.js, Express, and modern JavaScript.',
+    role: 'Core Team Member',
+    company: 'AWS Cloud Club, Lovely Professional University',
+    location: 'Phagwara, PB',
+    period: '2023 - Present',
+    highlights: [
+      'Co-organized cloud workshops and events for 300+ students.',
+      'Led practical AWS sessions for beginner-friendly technical learning.',
+      'Worked with cross-functional teams to grow developer community engagement.',
+    ],
   },
   {
-    icon: <Cloud size={32} />,
-    color: '#42A5F5', // Light Blue for AWS
-    title: 'AWS Cloud Services',
-    description: 'Experience with EC2, S3, CloudFront, and other AWS services for building scalable cloud solutions.',
-  },
-  {
-    icon: <Code size={32} />,
-    color: '#FFCA28', // Orange for Full-Stack JavaScript
-    title: 'Full Stack JavaScript',
-    description: 'Proficient in modern JavaScript frameworks including React, Next.js, and Node.js ecosystem.',
-  },
-  {
-    icon: <Box size={32} />,
-    color: '#1976D2', // Blue for Docker & Kubernetes
-    title: 'Docker',
-    description: 'Containerization and orchestration for deploying and managing microservices architecture.',
-  },
-  {
-    icon: <Database size={32} />,
-    color: '#AB47BC', // Purple for Database Management
-    title: 'Database Management',
-    description: 'Expertise in MongoDB, MySql efficient data storage and retrieval.',
-  },
-  {
-    icon: <GitBranch size={32} />,
-    color: '#F44336', // Red for CI/CD & DevOps
-    title: 'CI/CD & DevOps',
-    description: 'Implementing continuous integration and deployment pipelines using GitHub Actions, Jenkins, and AWS tools.',
-  },
-  {
-    icon: <Globe size={32} />,
-    color: '#26A69A', // Teal for API Development
-    title: 'API Development',
-    description: 'Designing and building RESTful with Node.js for seamless frontend-backend integration.',
+    role: 'Web Developer Intern',
+    company: 'Lovely Professional University',
+    location: 'Phagwara, PB',
+    period: '2024',
+    highlights: [
+      'Built responsive React and Next.js interfaces for real project workflows.',
+      'Integrated REST APIs and improved frontend performance.',
+      'Collaborated in agile cycles with clean version control practices.',
+    ],
   },
 ];
 
-const Skills = ({ isDarkMode }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedSkill, setSelectedSkill] = useState(null);
+const skillCategories = [
+  {
+    title: 'Languages',
+    icon: Code2,
+    accent: 'bg-amber-500',
+    skills: [
+      { name: 'JavaScript ES6+', icon: FileJson },
+      { name: 'C++', icon: Terminal },
+      { name: 'C#', icon: Hash },
+      { name: 'SQL', icon: Database },
+    ],
+  },
+  {
+    title: 'Frontend',
+    icon: Atom,
+    accent: 'bg-sky-500',
+    skills: [
+      { name: 'React.js', icon: Atom },
+      { name: 'Angular 21', icon: Code2 },
+      { name: 'Redux Toolkit', icon: Box },
+      { name: 'Tailwind CSS', icon: Sparkles },
+    ],
+  },
+  {
+    title: 'Backend',
+    icon: Server,
+    accent: 'bg-emerald-500',
+    skills: [
+      { name: 'Node.js', icon: Server },
+      { name: 'Express.js', icon: Network },
+      { name: 'ASP.NET Core', icon: Globe },
+      { name: 'REST APIs', icon: Cable },
+    ],
+  },
+  {
+    title: 'Databases',
+    icon: Database,
+    accent: 'bg-rose-500',
+    skills: [
+      { name: 'MongoDB', icon: Database },
+      { name: 'MySQL', icon: Database },
+      { name: 'SQL Server', icon: Database },
+      { name: 'Mongoose', icon: Database },
+    ],
+  },
+  {
+    title: 'Tools & Cloud',
+    icon: Wrench,
+    accent: 'bg-violet-500',
+    skills: [
+      { name: 'GitHub', icon: GitBranch },
+      { name: 'AWS', icon: Cloud },
+      { name: 'RabbitMQ', icon: MessageCircle },
+      { name: 'MediatR', icon: Zap },
+      { name: 'JWT', icon: Lock },
+      { name: 'EF Core', icon: Database },
+      { name: 'Serilog', icon: FileText },
+      { name: 'Swagger', icon: BookOpen },
+      { name: 'Postman', icon: Send },
+    ],
+  },
+];
 
-  const openModal = (skill) => {
-    setSelectedSkill(skill);
-    setIsModalOpen(true);
-  };
+const metrics = [
+  ['300+', 'students reached'],
+  ['4+', 'cloud events'],
+  ['5+', 'projects shipped'],
+];
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedSkill(null);
-  };
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08 },
+  },
+};
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
+const Skills = () => {
   return (
-    <motion.div
+    <motion.section
+      id="skills"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      id="skills"
-      className="w-full px-[5%] py-16 scroll-mt-20"
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.7 }}
+      className="scroll-mt-24 py-14 sm:py-20"
     >
-      <motion.h4
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-        className="text-center mb-4 text-xl font-Ovo dark:text-white/80"
-      >
-        My Expertise
-      </motion.h4>
-
-      <motion.h2
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-        className="text-center text-5xl font-Ovo font-bold text-gray-800 dark:text-white mb-8"
-      >
-        Technical Skills
-      </motion.h2>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.9, duration: 0.6 }}
-        className="grid gap-8 my-12 md:grid-cols-4 sm:grid-cols-2 grid-cols-1"
-      >
-        {skillsData.map((skill, index) => (
-          <motion.div
-            whileHover={{ scale: 1.05, boxShadow: '0px 15px 40px rgba(0, 0, 0, 0.15)' }}
-            transition={{ duration: 0.3 }}
-            className="border rounded-2xl p-8 bg-gradient-to-br  shadow-lg hover:-translate-y-2 duration-300 cursor-pointer hover:bg-lightHover hover:shadow-black dark:hover:shadow-white dark:hover:bg-darkHover/50 bg-white dark:bg-darkHover/30"
-            key={index}
-            onClick={() => openModal(skill)}
-          >
-            <div className="mb-6">
-              {React.cloneElement(skill.icon, { style: { color: skill.color }, className: 'transition-colors duration-300' })}
-            </div>
-            <h3 className="text-2xl font-Ovo font-semibold text-gray-800 dark:text-white mb-4">{skill.title}</h3>
-            <p className="text-base text-gray-600 dark:text-gray-300 font-Ovo leading-relaxed">{skill.description}</p>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {isModalOpen && selectedSkill && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
-          onClick={closeModal}
-        >
-          <div className="relative bg-white dark:bg-gray-800 p-8 rounded-2xl max-w-lg w-full mx-4" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="absolute top-4 right-4 text-gray-800 dark:text-white bg-gray-200 dark:bg-gray-700 rounded-full p-2"
-              onClick={closeModal}
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <h3 className="text-3xl font-Ovo font-bold text-gray-900 dark:text-white mb-6">{selectedSkill.title}</h3>
-            <p className="text-lg text-gray-700 dark:text-gray-300 font-Ovo leading-relaxed">{selectedSkill.description}</p>
+      <div className="section-shell">
+        <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
+          <div>
+            <span className="text-sm font-semibold uppercase tracking-[0.22em] text-amber-700 dark:text-amber-300">
+              Experience and skills
+            </span>
+            <h2 className="text-balance mt-3 text-4xl font-bold leading-tight text-gray-950 sm:text-5xl dark:text-white">
+              A practical stack for building polished, cloud-ready web apps.
+            </h2>
           </div>
+          <p className="max-w-2xl text-base leading-7 text-gray-600 lg:ml-auto dark:text-white/65">
+            I combine frontend craft, API integration, database fundamentals, and AWS community experience to ship interfaces that hold up beyond the demo.
+          </p>
         </div>
-      )}
-    </motion.div>
+
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          {metrics.map(([value, label]) => (
+            <div
+              key={label}
+              className="rounded-lg border border-black/10 bg-white/65 px-4 py-4 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/[0.05]"
+            >
+              <p className="text-2xl font-bold text-gray-950 dark:text-white">{value}</p>
+              <p className="mt-1 text-sm font-medium text-gray-500 dark:text-white/55">{label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="rounded-lg border border-black/10 bg-white/75 p-5 shadow-sm backdrop-blur sm:p-6 dark:border-white/10 dark:bg-white/[0.05]"
+          >
+            <div className="mb-6 flex items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center rounded-lg bg-gray-950 text-white dark:bg-white dark:text-gray-950">
+                <BriefcaseBusiness size={18} />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500 dark:text-white/45">
+                  Recent roles
+                </p>
+                <h3 className="text-xl font-bold text-gray-950 dark:text-white">Experience</h3>
+              </div>
+            </div>
+
+            <div className="space-y-5">
+              {experience.map((exp) => (
+                <motion.article
+                  key={`${exp.role}-${exp.period}`}
+                  variants={itemVariants}
+                  className="relative overflow-hidden rounded-lg border border-black/10 bg-white p-5 dark:border-white/10 dark:bg-[#111827]/80"
+                >
+                  <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-amber-500 via-orange-500 to-rose-500" />
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <h4 className="text-lg font-bold leading-snug text-gray-950 dark:text-white">{exp.role}</h4>
+                      <p className="mt-1 text-sm font-medium text-gray-600 dark:text-white/62">{exp.company}</p>
+                    </div>
+                    <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-800 dark:bg-amber-400/10 dark:text-amber-200">
+                      <Calendar size={13} />
+                      {exp.period}
+                    </span>
+                  </div>
+
+                  <div className="mt-3 inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-white/50">
+                    <MapPin size={14} />
+                    {exp.location}
+                  </div>
+
+                  <ul className="mt-4 space-y-2.5">
+                    {exp.highlights.map((highlight) => (
+                      <li key={highlight} className="flex gap-3 text-sm leading-6 text-gray-600 dark:text-white/65">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.article>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="grid gap-4 sm:grid-cols-2"
+          >
+            {skillCategories.map((category, index) => {
+              const CategoryIcon = category.icon;
+              const isWide = index === skillCategories.length - 1;
+
+              return (
+                <motion.article
+                  key={category.title}
+                  variants={itemVariants}
+                  className={`rounded-lg border border-black/10 bg-white/75 p-5 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-black/20 dark:border-white/10 dark:bg-white/[0.05] dark:hover:border-white/25 ${
+                    isWide ? 'sm:col-span-2' : ''
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className={`grid h-10 w-10 place-items-center rounded-lg text-white ${category.accent}`}>
+                      <CategoryIcon size={18} />
+                    </span>
+                    <h4 className="text-base font-bold text-gray-950 dark:text-white">{category.title}</h4>
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {category.skills.map((skill) => {
+                      const SkillIcon = skill.icon;
+
+                      return (
+                        <span
+                          key={skill.name}
+                          className="inline-flex max-w-full items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-2 text-sm font-semibold leading-none text-gray-700 shadow-sm dark:border-white/10 dark:bg-white/[0.06] dark:text-white/72"
+                        >
+                          <SkillIcon size={15} className="shrink-0 text-amber-600 dark:text-amber-300" />
+                          <span className="min-w-0 truncate">{skill.name}</span>
+                        </span>
+                      );
+                    })}
+                  </div>
+                </motion.article>
+              );
+            })}
+          </motion.div>
+        </div>
+      </div>
+    </motion.section>
   );
 };
 

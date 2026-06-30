@@ -132,7 +132,7 @@ const Education = ({ isDarkMode }) => {
   return (
     <motion.div
       id="education"
-      className="w-full px-[12%] py-10 scroll-mt-20"
+      className="section-shell py-16 sm:py-24 scroll-mt-24 overflow-x-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -141,7 +141,7 @@ const Education = ({ isDarkMode }) => {
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="text-center mb-2 text-lg font-Ovo text-gray-700 dark:text-white/80"
+        className="text-center mb-2 text-sm font-semibold uppercase tracking-[0.22em] text-amber-700 dark:text-amber-300"
       >
         My Background
       </motion.h4>
@@ -150,18 +150,18 @@ const Education = ({ isDarkMode }) => {
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
-        className="text-center text-5xl font-Ovo text-gray-800 dark:text-white"
+        className="text-center text-4xl sm:text-5xl font-bold text-gray-950 dark:text-white"
       >
         Education & Achievements
       </motion.h2>
 
       <Tab.Group>
-        <Tab.List className="flex justify-center gap-4 mt-8 mb-12">
+        <Tab.List className="flex sm:justify-center justify-start gap-1.5 sm:gap-4 mt-8 mb-12 overflow-x-auto flex-nowrap px-1 sm:px-2 scrollbar-hide w-full">
           {['Education', 'Achievements', 'Extracurriculars', 'Certifications'].map((category) => (
             <Tab
               key={category}
               className={({ selected }) =>
-                `px-6 py-3 rounded-lg font-medium text-sm transition-all duration-300 ${
+                `px-2.5 sm:px-6 py-1.5 sm:py-3 rounded-lg font-medium text-[11px] sm:text-sm transition-all duration-300 whitespace-nowrap shrink-0 ${
                   selected
                     ? 'bg-blue-600 text-white shadow-lg'
                     : 'bg-gray-200 dark:bg-white/10 text-gray-800 dark:text-white/60 hover:bg-gray-300 dark:hover:bg-white/20'
@@ -177,7 +177,7 @@ const Education = ({ isDarkMode }) => {
           {/* Education Section */}
           <Tab.Panel>
             <motion.div
-              className="space-y-10"
+              className="space-y-6 sm:space-y-10"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
@@ -187,35 +187,35 @@ const Education = ({ isDarkMode }) => {
                   key={idx}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.5 }}
-                  className="border border-gray-300 dark:border-white/30 rounded-xl p-6 hover:-translate-y-1 duration-500 hover:bg-lightHover hover:shadow-black dark:hover:shadow-white dark:hover:bg-darkHover/50 bg-white dark:bg-darkHover/30"
+                  className="border border-gray-300 dark:border-white/30 rounded-xl p-4 sm:p-6 hover:-translate-y-1 duration-500 hover:bg-lightHover hover:shadow-black dark:hover:shadow-white dark:hover:bg-darkHover/50 bg-white dark:bg-darkHover/30"
                 >
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white">{edu.degree}</h3>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 dark:text-white">{edu.degree}</h3>
                   <div className="flex items-center gap-2 mt-2">
                     <Image
                       src={edu.logo}
                       alt={`${edu.school} logo`}
-                      className="w-9 h-9 rounded-full object-contain"
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-contain shrink-0"
                     />
-                    <p className="text-gray-500 dark:text-white/60">{edu.school}</p>
+                    <p className="text-gray-500 dark:text-white/60 text-sm sm:text-base">{edu.school}</p>
                   </div>
-                  <div className="flex items-center gap-6 mt-2 text-gray-600 text-sm dark:text-white/50">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-gray-600 text-sm dark:text-white/50">
                     <div className="flex items-center gap-1">
-                      <CalendarDays className="w-4 h-4" />
+                      <CalendarDays className="w-4 h-4 shrink-0" />
                       {edu.duration}
                     </div>
                     <div className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" />
+                      <MapPin className="w-4 h-4 shrink-0" />
                       {edu.location}
                     </div>
                   </div>
-                  <p className="mt-4 text-gray-700 dark:text-white/80">{edu.description}</p>
+                  <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-700 dark:text-white/80">{edu.description}</p>
 
                   {edu.achievements && edu.achievements.length > 0 && (
-                    <div className="mt-4">
-                      <p className="font-semibold text-gray-700 dark:text-white flex items-center gap-1">
+                    <div className="mt-3 sm:mt-4">
+                      <p className="font-semibold text-gray-700 dark:text-white flex items-center gap-1 text-sm sm:text-base">
                         ✅ Achievements
                       </p>
-                      <ul className="list-disc list-inside text-sm mt-1 text-gray-600 dark:text-white/80">
+                      <ul className="list-disc list-inside text-xs sm:text-sm mt-1 text-gray-600 dark:text-white/80">
                         {edu.achievements.map((ach, i) => (
                           <li key={i}>{ach}</li>
                         ))}
@@ -224,15 +224,15 @@ const Education = ({ isDarkMode }) => {
                   )}
 
                   {edu.skills && edu.skills.length > 0 && (
-                    <div className="mt-4">
-                      <p className="font-semibold text-gray-700 dark:text-white flex items-center gap-1">
+                    <div className="mt-3 sm:mt-4">
+                      <p className="font-semibold text-gray-700 dark:text-white flex items-center gap-1 text-sm sm:text-base">
                         💡 Key Skills
                       </p>
                       <div className="flex flex-wrap gap-2 mt-2">
                         {edu.skills.map((skill, i) => (
                           <span
                             key={i}
-                            className="bg-gray-100 dark:bg-white/10 text-sm px-3 py-1 rounded-full font-medium text-gray-800 dark:text-white"
+                            className="bg-gray-100 dark:bg-white/10 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full font-medium text-gray-800 dark:text-white"
                           >
                             {skill}
                           </span>
@@ -251,31 +251,33 @@ const Education = ({ isDarkMode }) => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="grid md:grid-cols-3 gap-8"
+              className="grid md:grid-cols-3 gap-4 sm:gap-8"
             >
               {achievements.map((ach, idx) => (
                 <motion.div
                   key={idx}
                   whileHover={{ scale: 1.05, boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.2)' }}
                   transition={{ duration: 0.5 }}
-                  className="relative border border-gray-300 dark:border-white/30 p-6 rounded-xl shadow-lg hover:bg-lightHover hover:shadow-black dark:hover:shadow-white dark:hover:bg-darkHover/50 bg-white dark:bg-darkHover/30"
+                  className="border border-gray-300 dark:border-white/30 p-4 sm:p-6 rounded-xl shadow-lg hover:bg-lightHover hover:shadow-black dark:hover:shadow-white dark:hover:bg-darkHover/50 bg-white dark:bg-darkHover/30"
                 >
-                  <div className="flex items-center gap-3">
-                    {ach.icon}
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">{ach.title}</h3>
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                      {ach.icon}
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 dark:text-white">{ach.title}</h3>
+                    </div>
+                    <span className="shrink-0 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-[10px] sm:text-xs font-semibold px-2 sm:px-3 py-1 rounded-full">
+                      {ach.year}
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 mt-2">
                     <Image
                       src={ach.logo}
                       alt={`${ach.org} logo`}
-                      className="w-6 h-6 rounded-full object-cover"
+                      className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-cover shrink-0"
                     />
-                    <p className="text-gray-500 dark:text-white/60">{ach.org}</p>
+                    <p className="text-gray-500 dark:text-white/60 text-xs sm:text-sm truncate">{ach.org}</p>
                   </div>
-                  <span className="absolute top-4 right-4 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold px-3 py-1 rounded-full">
-                    {ach.year}
-                  </span>
-                  <p className="mt-4 text-sm text-gray-700 dark:text-white/80 leading-relaxed">
+                  <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-700 dark:text-white/80 leading-relaxed">
                     {ach.description}
                   </p>
                 </motion.div>
@@ -289,34 +291,34 @@ const Education = ({ isDarkMode }) => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="space-y-10"
+              className="space-y-6 sm:space-y-10"
             >
               {extracurriculars.map((extra, idx) => (
                 <motion.div
                   key={idx}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.5 }}
-                  className="border border-gray-300 dark:border-white/30 rounded-xl p-6 hover:-translate-y-1 duration-500 hover:bg-lightHover hover:shadow-black dark:hover:shadow-white dark:hover:bg-darkHover/50 bg-white dark:bg-darkHover/30"
+                  className="border border-gray-300 dark:border-white/30 rounded-xl p-4 sm:p-6 hover:-translate-y-1 duration-500 hover:bg-lightHover hover:shadow-black dark:hover:shadow-white dark:hover:bg-darkHover/50 bg-white dark:bg-darkHover/30"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 sm:gap-3">
                     {extra.icon}
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">{extra.title}</h3>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 dark:text-white">{extra.title}</h3>
                   </div>
                   <div className="flex items-center gap-2 mt-2">
                     <img
                       src={extra.logo}
                       alt={`${extra.org} logo`}
-                      className="w-9 h-9 rounded-full object-cover"
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover shrink-0"
                     />
-                    <p className="text-gray-500 dark:text-white/60">{extra.org}</p>
+                    <p className="text-gray-500 dark:text-white/60 text-xs sm:text-sm">{extra.org}</p>
                   </div>
-                  <div className="flex items-center gap-6 mt-2 text-gray-600 text-sm dark:text-white/50">
+                  <div className="flex items-center gap-4 mt-2 text-gray-600 text-xs sm:text-sm dark:text-white/50">
                     <div className="flex items-center gap-1">
-                      <CalendarDays className="w-4 h-4" />
+                      <CalendarDays className="w-4 h-4 shrink-0" />
                       {extra.duration}
                     </div>
                   </div>
-                  <p className="mt-4 text-gray-700 dark:text-white/80">{extra.description}</p>
+                  <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-700 dark:text-white/80">{extra.description}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -328,40 +330,42 @@ const Education = ({ isDarkMode }) => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="grid md:grid-cols-3 gap-8"
+              className="grid md:grid-cols-3 gap-4 sm:gap-8"
             >
               {certifications.map((cert, idx) => (
                 <motion.div
                   key={idx}
                   whileHover={{ scale: 1.05, boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.2)' }}
                   transition={{ duration: 0.5 }}
-                  className="relative border border-gray-300 dark:border-white/30 p-6 rounded-xl shadow-lg hover:bg-lightHover hover:shadow-black dark:hover:shadow-white dark:hover:bg-darkHover/50 bg-white dark:bg-darkHover/30"
+                  className="border border-gray-300 dark:border-white/30 p-4 sm:p-6 rounded-xl shadow-lg hover:bg-lightHover hover:shadow-black dark:hover:shadow-white dark:hover:bg-darkHover/50 bg-white dark:bg-darkHover/30"
                 >
-                  <div className="flex items-center gap-3">
-                    {cert.icon}
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">{cert.title}</h3>
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                      {cert.icon}
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 dark:text-white">{cert.title}</h3>
+                    </div>
+                    <span className="shrink-0 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-[10px] sm:text-xs font-semibold px-2 sm:px-3 py-1 rounded-full">
+                      {cert.year}
+                    </span>
                   </div>
-                  <p className="text-gray-500 dark:text-white/60 mt-1 font-medium">{cert.org}</p>
-                  <span className="absolute top-4 right-4 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold px-3 py-1 rounded-full">
-                    {cert.year}
-                  </span>
-                  <p className="mt-4 text-sm text-gray-700 dark:text-white/80 leading-relaxed">
+                  <p className="text-gray-500 dark:text-white/60 mt-1 font-medium text-xs sm:text-sm">{cert.org}</p>
+                  <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-700 dark:text-white/80 leading-relaxed">
                     {cert.description}
                   </p>
-                  <div className="mt-4">
+                  <div className="mt-3 sm:mt-4">
                     <Image
                       src={cert.image}
                       alt={`${cert.title} certificate`}
-                      className="w-auto h-auto object-cover rounded-lg cursor-pointer border border-gray-200 dark:border-gray-700"
+                      className="w-full h-auto object-contain rounded-lg cursor-pointer border border-gray-200 dark:border-gray-700"
                       onClick={() => openModal(cert.image)}
                     />
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-3 sm:mt-4">
                     <a
                       href={cert.verifyLink}
-                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all duration-300"
+                      className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all duration-300"
                     >
-                      <Link className="w-4 h-4" />
+                      <Link className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       Verify Certificate
                     </a>
                   </div>
@@ -374,20 +378,20 @@ const Education = ({ isDarkMode }) => {
 
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
           onClick={closeModal}
         >
-          <div className="relative">
+          <div className="relative w-full max-w-3xl">
             <Image
               src={selectedImage}
               alt="Expanded certificate"
-              className="max-w-[90vw] max-h-[90vh] rounded-lg object-contain"
+              className="w-full h-auto max-h-[85vh] rounded-lg object-contain mx-auto"
             />
             <button
-              className="absolute top-2 right-2 text-white bg-gray-800 rounded-full p-2"
+              className="absolute -top-3 -right-3 sm:top-2 sm:right-2 text-white bg-gray-800 hover:bg-gray-700 rounded-full p-1.5 sm:p-2"
               onClick={closeModal}
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
         </div>
