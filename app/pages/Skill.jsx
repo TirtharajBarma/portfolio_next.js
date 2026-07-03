@@ -106,7 +106,6 @@ const skillCategories = [
       { name: 'GitHub', icon: GitBranch },
       { name: 'AWS', icon: Cloud },
       { name: 'RabbitMQ', icon: MessageCircle },
-      { name: 'MediatR', icon: Zap },
       { name: 'JWT', icon: Lock },
       { name: 'EF Core', icon: Database },
       { name: 'Serilog', icon: FileText },
@@ -266,7 +265,7 @@ const Skills = () => {
                       return (
                         <span
                           key={skill.name}
-                          className="inline-flex max-w-full items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-2 text-sm font-semibold leading-none text-gray-700 shadow-sm dark:border-white/10 dark:bg-white/[0.06] dark:text-white/72"
+                          className="inline-flex max-w-full items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-2 text-sm font-semibold leading-none text-gray-700 shadow-sm dark:border-white/10 dark:bg-white/[0.06] dark:text-white"
                         >
                           <SkillIcon size={15} className="shrink-0 text-amber-600 dark:text-amber-300" />
                           <span className="min-w-0 truncate">{skill.name}</span>

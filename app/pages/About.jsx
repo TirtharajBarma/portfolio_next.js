@@ -85,14 +85,14 @@ const About = () => {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-white/45">
                 Daily tools
               </p>
-              <div className="mt-4 grid grid-cols-4 gap-2.5">
+              <div className="mt-4 grid grid-cols-4 gap-2 sm:gap-2.5 lg:gap-3">
                 {toolsData.map((tool, index) => (
                   <motion.div
                     key={index}
                     whileHover={{ y: -3 }}
-                    className="grid aspect-square place-items-center rounded-md border border-black/10 bg-slate-50 transition dark:border-white/10 dark:bg-white"
+                    className="grid h-16 place-items-center rounded-md border border-black/10 bg-slate-50 transition sm:h-20 lg:h-24 dark:border-white/10 dark:bg-white"
                   >
-                    <Image src={tool} alt="Development tool" className="w-5 sm:w-6" />
+                    <Image src={tool} alt="Development tool" className="w-4 sm:w-5 lg:w-6" />
                   </motion.div>
                 ))}
               </div>
